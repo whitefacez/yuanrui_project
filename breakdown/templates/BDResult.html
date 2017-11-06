@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>信息登记页面</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'breakdown/Num1.css' %}" />	
+	</head>
+	<body>
+		<!--页面头部-->
+		<div class="web-header">
+			<div class="header-logo"><img src="{% static 'breakdown/images/logo1.png' %}"></div>
+			<div class="title-one">
+			<ul  display="none">
+			</ul></div>
+		</div>
+		<!--页面部分-->
+		<div class="web-mid">
+			<div class="web-mid-sub"> 
+				<form method="post" action="">
+					<h3>故障信息录入</h3>
+						{% csrf_token %}
+					    {{ formBDResult }}
+					<input type="submit" value="提交" />
+				</form>
+			</div>
+		
+		</div>
+		<!--页面尾部-->
+		<div class="web-footer">
+			<div class="web-footer-info">
+			Copyright  2008-2013版权所有 广州源瑞信息科技有限公司   | 备案号：粤ICP备11029455<br />
+			地址:  广州市天河区燕玲路89号燕侨大厦1210房<br />
+			业务联系:  020-22941994  020-38090081  | 传真 :020-87647780<br />
+			</div>
+		</div>
+	</body>
+</html>

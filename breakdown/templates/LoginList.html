@@ -1,0 +1,78 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>信息登记页面</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'breakdown/Num1.css' %}" />	
+	</head>
+	<body>
+		<!--页面头部-->
+		<div class="web-header">
+			<div class="header-logo"><img src="{% static 'breakdown/images/logo1.png' %}"></div>
+			<div class="title-one">
+			<ul  display="none">
+			</ul></div>
+		</div>
+        <!--页面部分-->
+            <div class="mid">
+            {% csrf_token %}
+          <table border="1" class="met">
+              <tr>
+                    <th class="table-id">报障编码</th>
+                    <th class="table-title">处理结果</th>
+                    <th class="table-type">故障级别</th>
+                    <th class="table-author">故障类型</th>
+                    <th class="table-date">所属线路</th>
+                    <th class="table-set">所属站点</th>
+                    <th class="table-id">车厢编号</th>
+                    <th class="table-title">位置</th>
+                    <th class="table-type">故障数量</th>
+                    <th class="table-author">录入员</th>
+                    <th class="table-date">处理人</th>
+                    <th class="table-date">报修时间</th>
+                    <th class="table-set">处理结果</th>
+               </tr>
+               {% for loglist in login_list %}
+               <tr>
+                   <td>{{ loglist.LoginNo }}</td>
+                   <td>{{ loglist.Result}}</td>
+                   <td>{{ loglist.BreakdownLevel}}</td>
+                   <td>{{ loglist.BreakdownType}}</td>
+                   <td>{{ loglist.Line}}</td>
+                   <td>{{ loglist.Site}}</td>
+                   <td>{{ loglist.Coach}}</td>
+                   <td>{{ loglist.Position}}</td>
+                   <td>{{ loglist.BreakdownCount}}</td>
+                   <td>{{ loglist.Keyboard}}</td>
+                   <td>{{ loglist.Processor}}</td>
+                   <td>{{ loglist.BreakdownDate}}</td>
+                   <td>{{ loglist.LoginRemark}}</td>
+                   <td>
+                       <a href='/loglist/{{loglist.LoginNo}}'>修改</a>
+                   </td>
+               </tr>
+               {%  endfor   %}
+          </table>
+        </div>
+		<div class="web-mid">
+			<div class="web-mid-sub"> 
+				<form method="post" action="">
+					<h3>故障信息录入</h3>
+						{% csrf_token %}
+					{{ form }}
+					<input type="submit" value="提交" />
+				</form>
+			</div>
+		
+		</div>
+		<!--页面尾部-->
+		<div class="web-footer">
+			<div class="web-footer-info">
+			Copyright  2008-2013版权所有 广州源瑞信息科技有限公司   | 备案号：粤ICP备11029455<br />
+			地址:  广州市天河区燕玲路89号燕侨大厦1210房<br />
+			业务联系:  020-22941994  020-38090081  | 传真 :020-87647780<br />
+			</div>
+		</div>
+	</body>
+</html>
