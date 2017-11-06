@@ -32,10 +32,11 @@ def showbreakdownlogin_list(request):
     login_list = Breakdownlogin.objects.all()
     return render(request, 'LoginList.html',{'login_list': login_list})
 
-def updatebreakdownlogin_list(request):
-    keyid = request.get(id)
-    changedate =  Breakdownlogin.objects.get(id = keyid)
+def updatebreakdownlogin_list(request,pk):
+    changedate =  Breakdownlogin.objects.get(id = pk)
     if request.POST.has_key('Result'):
         changedate.request = request.POST['Result']
     changedate.save()
-    return HttpResponseRedirect('loglist')
+    return HttpResponseRedirect('/loglist/' )
+
+        

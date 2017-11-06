@@ -9,6 +9,5 @@ urlpatterns=[
     url(r'^$',views.addbreakdownlogin,name = 'BDlogin'),
     url(r'^d/$',views.addbreakdownResult,name = 'BDResult'),
     url(r'^loglist/$',views.showbreakdownlogin_list,name = 'login_list'),
-    url(r'^loglist/$',views.showbreakdownlogin_list,name = 'login_list_delete'),
-    url(r'^loglist/(?P<keyid>\d+)',views.updatebreakdownlogin_list,name = 'login_list_update'),
+     url(r'^loglist/(?P<pk>\d+)/u/$',views.updatebreakdownlogin_list,name = 'login_list_update'),
 ]

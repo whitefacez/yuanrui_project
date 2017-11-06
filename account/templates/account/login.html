@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+登录
+{% endblock  %}
+
+{% block content %}
+		<h1>登录</h1>
+		{% if form.errors %}
+		<p>
+			用户名和密码不匹配，请重新输入
+		</p>
+		{% else %}
+		<p>
+			ok
+		</p>
+		{% endif %}
+		<div class="login-form">
+			<form action = "{% url 'login' %}" method = "post">
+				{{ form.as_p }}
+				{% csrf_token %}
+				<input type="hidden" name="next" value = "{{ next }}" />
+				<p>
+					<input type="submit" value="登陆" name="" id="sub"/>
+				</p>
+			</form>
+		</div>
+{% endblock  %}			
+		
+		<p>仅供源瑞科技有限公司内部使用</p>
+		</div>
+
+
+		
+		<!-- 尾页部分  			<div class="icon"><img src="img/mine_fill.png" width="34px" height="38px" style="display: block;float: left;"><input type="text"  placeholder="请输入账号名"/></div>
+				<div class="icon-pwd"><img src="img/pwd.png" width="34px" height="38px"style="display: block;float: left;"><input type="password" placeholder="请输入密码" id="pwd"/><br /></div>
+		<div class="footer">
+			<div class="footer-info">
+			Copyright  2008-2013版权所有 广州源瑞信息科技有限公司   | 备案号：粤ICP备11029455<br />
+			地址:  广州市天河区燕玲路89号燕侨大厦1210房<br />
+			业务联系:  020-22941994  020-38090081  | 传真 :020-87647780<br />
+			</div>
+		</div>-->
+	</body>
+</html>
