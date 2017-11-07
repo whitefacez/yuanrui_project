@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 </head>
 <body>
     <div id="header">
-        <span class="logo">Bookmarks</span>
+        <span class="logo">工程部内务系统</span>
         {% if request.user.is_authenticated %}
         <ul class="menu">
             <li {% if section == "dashboard" %}class="selected"{% endif %}><a href="{% url "dashboard" %}">My dashboard</a></li>
@@ -18,9 +19,9 @@
         
         <span class="user">
         {% if request.user.is_authenticated %}
-            Hello {{ request.user.first_name }}, <a href="{% url "logout" %}">Logout</a>
+            Hello {{ user.first_name }}, <a href="{% url "logout" %}">登出</a>
         {% else %}
-            <a href="{% url "login" %}">Log-in</a>
+            <a href="{% url "login" %}">登录</a>
         {% endif %}
         </span>
     </div>

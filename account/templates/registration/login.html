@@ -7,24 +7,35 @@
 {% block content %}
 		<h1>登录</h1>
 		{% if form.errors %}
-		<p>
-			用户名和密码不匹配，请重新输入
-		</p>
-		{% else %}
-		<p>
-			ok
-		</p>
+		<p>用户名和密码不匹配，请再次输入</p>
 		{% endif %}
-		<div class="login-form">
-			<form action = "{% url 'login' %}" method = "post">
-				{{ form.as_p }}
-				{% csrf_token %}
-				<input type="hidden" name="next" value = "{{ next }}" />
-				<p>
-					<input type="submit" value="登陆" name="" id="sub"/>
-				</p>
-			</form>
-		</div>
+		
+		{% if next %}
+			{% if user.is_authenticated %}
+			<p>你的账号不能访问这个页面</p>
+			{% else %}
+			<p>请登录才进入这个页面</p>
+			{% endif %}
+		{% endif %}
+		
+		<form method="post" action="{% url 'login' %}">
+		{% csrf_token %}
+		<table>
+		<tr>
+			<td>用户名</td>
+			<td>{{ form.username }}</td>
+		</tr>
+		<tr>
+			<td>密码</td>
+			<td>{{ form.password }}</td>
+		</tr>
+		</table>
+		
+		<input type="submit" value="登录" />
+		<p>如果你没有账号 点击 <a href="{% url "register" %}">注册账号 </a></p>
+		<input type="hidden" name="next" value="{{ next }}" />
+		</form>
+		
 {% endblock  %}			
 		
 		<p>仅供源瑞科技有限公司内部使用</p>
