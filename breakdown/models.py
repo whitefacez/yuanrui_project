@@ -3,12 +3,7 @@ from django.forms import ModelForm,Select
 from django.utils.translation import ugettext_lazy as _
 
 #
-def get_object(modelname,firstkey):
-    r = []
-    r = modelname.objects.values_list('id', firstkey)
-      #  for obj in modelname.objects.all():
-      #      r = r + [(obj.id, obj.values(firstkey))]
-    return r
+
 
 
 # Create your models here.
@@ -26,10 +21,6 @@ class BreakdownType(models.Model):
     BDTName = models.CharField(max_length = 20)
     BDTLevel = models.CharField(max_length = 20)
     
-
-
-
-
 
 #------------------------------------------------------------------------#
 #故障处理
@@ -63,8 +54,9 @@ class Breakdownlogin(models.Model):
     Keyboard = models.CharField(max_length = 20 )
     Processor = models.CharField(max_length = 20 )
     BreakdownDate = models.DateField()
-    LoginRemark = models.CharField(max_length = 200)    
+    LoginRemark = models.CharField(max_length = 200,blank=True)    
 
+'''
 class BreakdownloginForm(ModelForm):
     class Meta:
         model = Breakdownlogin
@@ -89,3 +81,4 @@ class BreakdownloginForm(ModelForm):
             'Result'  : Select(choices = get_object(BreakdownResult,"BDRName")),
             
         }
+'''

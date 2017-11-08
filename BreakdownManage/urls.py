@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url('^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^breakdown/', include('breakdown.urls')),
+    url(r'^breakdown/', include('breakdown.urls'),name="breakdown"),
     url(r'^account/', include('account.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]

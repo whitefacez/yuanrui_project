@@ -37,7 +37,8 @@
            <td>{{ loglist.BreakdownDate}}</td>
            <td>{{ loglist.LoginRemark}}</td>
            <td>
-               <a href='{{loglist.LoginNo}}'>修改</a>
+               <a href='{{ loglist.LoginNo }}'>修改</a>
+               <a href='{{ loglist.LoginNo }}/d'>删除</a>
            </td>
        </tr>
        {%  endfor   %}

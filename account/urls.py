@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url,include
 from . import views
 from django.contrib.auth import views as auth_views
 
@@ -16,5 +16,5 @@ urlpatterns = [
     
     url(r'^password-change/$', auth_views.PasswordChangeView.as_view(template_name='account/password_change_form.html'), name='password_change'),
     url(r'^password-change/done/$', auth_views.PasswordChangeDoneView.as_view(template_name='account/password_change_done.html'), name='password_change_done'),
-
+    
 ]
