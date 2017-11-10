@@ -4,6 +4,11 @@
 
 {%block content %}
 <div class="mid">
+    <form action="" method = "POST">
+        <input type="text" name="DateStart" />
+        <input type="text" name="DateEnd" />
+        <input type="submit" value="提交" />
+    </form>
     {% csrf_token %}
   <table border="1" class="met">
       <tr>

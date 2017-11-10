@@ -3,25 +3,25 @@
 {%block title %} 故障录入页面 {% endblock %}
 
 {%block content %}
-					<h3>故障信息录入</h3>
-						{% for loglist in ChangedateForm %}						
-					<form action="/breakdown/loglist/{{ loglist.LoginNo }}/u/" method="post">  
-						{% csrf_token %}
-						<input name="LoginNo" type="text" value="{{ loglist.LoginNo }}"/>
-						<input name="Result" type="text" value="{{ loglist.Result }}"/>
-						<input name="BreakdownLevel" type="text" value="{{ loglist.BreakdownLevel }}"/>
-						<input name="BreakdownType" type="text" value="{{ loglist.BreakdownType }}" />
-						<input name="Line" type="text" value="{{ loglist.Line }}"/>
-						<input name="Site" type="text" value="{{ loglist.Site }}"/>
-						<input name="Coach" type="text" value="{{ loglist.Coach }}"/>
-						<input name="Position" type="text" value="{{ loglist.Position }}"/>
-						<input name="BreakdownCount" type="text" value="{{ loglist.BreakdownCount }}"/>
-						<input name="Keyboard" type="text" value="{{ loglist.Keyboard }}"/>
-						<input name="Processor" type="text" value="{{ loglist.Processor }}"/>
-						<input name="BreakdownDate" type="text" value="{{ loglist.BreakdownDate }}"/>
-						<input name="LoginRemark" type="text" value="{{ loglist.LoginRemark }}"/>
-						<input type="submit" value="提交" />
-					</form> 
-				
-					{%  endfor   %}
+<h3>故障信息录入</h3>
+	{% for loglist in ChangedateForm %}						
+<form action="/breakdown/loglist/{{ loglist.LoginNo }}/u/" method="post">  
+	{% csrf_token %}
+	<input name="LoginNo" type="text" value="{{ loglist.LoginNo }}"/>
+	<input name="Result" type="text" value="{{ loglist.Result }}"/>
+	<input name="BreakdownLevel" type="text" value="{{ loglist.BreakdownLevel }}"/>
+	<input name="BreakdownType" type="text" value="{{ loglist.BreakdownType }}" />
+	<input name="Line" type="text" value="{{ loglist.Line }}"/>
+	<input name="Site" type="text" value="{{ loglist.Site }}"/>
+	<input name="Coach" type="text" value="{{ loglist.Coach }}"/>
+	<input name="Position" type="text" value="{{ loglist.Position }}"/>
+	<input name="BreakdownCount" type="text" value="{{ loglist.BreakdownCount }}"/>
+	<input name="Keyboard" type="text" value="{{ loglist.Keyboard }}"/>
+	<input name="Processor" type="text" value="{{ loglist.Processor }}"/>
+	<input name="BreakdownDate" type="text" value="{{ loglist.BreakdownDate }}"/>
+	<input name="LoginRemark" type="text" value="{{ loglist.LoginRemark }}"/>
+	<input type="submit" value="提交" />
+</form> 
+
+{%  endfor   %}
 {% endblock %}
